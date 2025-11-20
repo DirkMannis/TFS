@@ -89,7 +89,7 @@
   <section id="mortalkombat"><h2>Mortal Kombat Crossover</h2><div class="item-grid"></div></section>
 </main>
 
-<footer>© 2025 TransformersSale.com • Ships from Nebraska, USA</footer>
+<footer>© 2025 TransformersSale.com • Ships from Midwest, USA</footer>
 
 <script>
 // Lightbox
@@ -112,7 +112,7 @@ document.querySelectorAll('section').forEach(sec=>{
 
 // Make Offer + Sold Out
 document.querySelectorAll('.btn-offer').forEach(b=>{
-  b.onclick=()=>{const min=b.dataset.min;const item=b.dataset.item;const offer=prompt(`Make an offer for ${item} (min $${min}):`);if(offer&&parseFloat(offer)>=parseFloat(min)){location.href=`mailto:your.email@gmail.com?subject=Offer: ${encodeURIComponent(item)}&body=Item: ${item}%0AOffer: $${offer}%0AName:%0APhone:`;}else if(offer)alert(`Offer must be at least $${min}`);};
+  b.onclick=()=>{const min=b.dataset.min;const item=b.dataset.item;const offer=prompt(`Make an offer for ${item} (min $${min}):`);if(offer&&parseFloat(offer)>=parseFloat(min)){location.href=`mailto:DirkMannis@gmail.com?subject=Offer: ${encodeURIComponent(item)}&body=Item: ${item}%0AOffer: $${offer}%0AName:%0APhone:`;}else if(offer)alert(`Offer must be at least $${min}`);};
 });
 document.querySelectorAll('.qty-left').forEach(q=>{
   if(parseInt(q.textContent)===0){const btn=q.closest('.item').querySelector('.btn-buy');btn.disabled=true;btn.textContent='SOLD OUT';btn.style.background='#555';}
