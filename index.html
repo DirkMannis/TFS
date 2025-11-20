@@ -85,28 +85,30 @@
   <section id="rid"><h2>Robots in Disguise</h2><div class="item-grid"></div></section>
   <section id="armada"><h2>Transformers Armada</h2><div class="item-grid"></div></section>
   <section id="animated"><h2>Transformers Animated</h2><div class="item-grid"></div></section>
-  <section id="streetfighter"><h2>Street Fighter Crossover</h2><div class="item-grid"></div></section>
-  <section id="mortalkombat"><h2>Mortal Kombat Crossover</h2><div class="item-grid"></div></section>
+  <section id="streetfighter"><h2>Street Fighter</h2><div class="item-grid"></div></section>
+  <section id="mortalkombat"><h2>Mortal Kombat</h2><div class="item-grid"></div></section>
 </main>
 
 <footer>© 2025 TransformersSale.com • Ships from Midwest, USA</footer>
 
 <script>
-// Lightbox
+// Lightbox (unchanged)
 document.querySelectorAll('.clickable').forEach(img=>{img.onclick=()=>{const box=document.createElement('div');box.style.cssText='position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;z-index:9999;cursor:pointer;';const big=document.createElement('img');big.src=img.src;big.style.maxWidth='92%';big.style.maxHeight='92%';box.appendChild(big);box.onclick=()=>box.remove();document.body.appendChild(box);};});
 
 // URL + text search
-const params=new URLSearchParams(location.search);const urlSearch=params.get('a')?.toLowerCase()||'';
+const params=new URLSearchParams(location.search);
+const urlSearch=params.get('a')?.toLowerCase()||'';
 const input=document.getElementById('search-input');
 function filter(q){document.querySelectorAll('.item').forEach(i=>{i.style.display=i.dataset.name.toLowerCase().includes(q)?'block':'none';});}
 if(urlSearch){input.value=params.get('a');filter(urlSearch);}
 input.addEventListener('input',()=>filter(input.value.toLowerCase()));
 
-// Auto-hide empty categories on page load
-document.querySelectorAll('section').forEach(sec=>{
-  if(sec.querySelector('.item-grid').children.length===0){
-    sec.style.display='none';                 // hides the entire section + its nav link still works if someone clicks it
-    document.querySelector(`a[href="#${sec.id}"]`)?.parentElement.style.display='none';
+// NEW: Properly hide only the empty SECTION (keep nav links visible!)
+document.querySelectorAll('section').forEach(sec => {
+  const grid = sec.querySelector('.item-grid');
+  if (grid && grid.children.length === 0) {
+    sec.style.display = 'none';   // hides the heading + empty grid
+    // Nav links stay untouched and fully visible
   }
 });
 
@@ -115,7 +117,10 @@ document.querySelectorAll('.btn-offer').forEach(b=>{
   b.onclick=()=>{const min=b.dataset.min;const item=b.dataset.item;const offer=prompt(`Make an offer for ${item} (min $${min}):`);if(offer&&parseFloat(offer)>=parseFloat(min)){location.href=`mailto:DirkMannis@gmail.com?subject=Offer: ${encodeURIComponent(item)}&body=Item: ${item}%0AOffer: $${offer}%0AName:%0APhone:`;}else if(offer)alert(`Offer must be at least $${min}`);};
 });
 document.querySelectorAll('.qty-left').forEach(q=>{
-  if(parseInt(q.textContent)===0){const btn=q.closest('.item').querySelector('.btn-buy');btn.disabled=true;btn.textContent='SOLD OUT';btn.style.background='#555';}
+  if(parseInt(q.textContent)===0){
+    const btn=q.closest('.item').querySelector('.btn-buy');
+    if(btn){btn.disabled=true;btn.textContent='SOLD OUT';btn.style.background='#555';}
+  }
 });
 </script>
 </body>
