@@ -40,6 +40,12 @@
     .thumbnails{display:flex;gap:6px;padding:8px;background:#000;justify-content:center;}
     .thumb{width:70px;height:70px;object-fit:cover;cursor:pointer;border:2px solid var(--g1-silver);border-radius:4px;}
     .item-title{color:var(--g1-blue);margin:1rem;font-size:1.4rem;text-align:center;}
+    .item-brief {
+  margin: 0 1rem 0.5rem;   /* adds left/right padding so it no longer hugs the border */
+  text-align: center;
+  color: #ccc;
+  font-size: 0.95rem;
+}
     .item-price{font-size:1.8rem;font-weight:bold;text-align:center;color:#0f0;margin:0.5rem 0;}
     .btn-buy,.btn-offer{margin:0.8rem auto;display:block;width:90%;padding:0.9rem;font-size:1.1rem;border:none;border-radius:6px;cursor:pointer;}
     .btn-buy{background:var(--g1-red);color:#fff;font-weight:bold;}
@@ -94,7 +100,6 @@
     <img src="images/MK-Shaolin-Monks-Sub-Zero.jpg" alt="Sub-Zero Shaolin Monks MOSC" class="main-img clickable">
     <div class="thumbnails">
       <img src="images/MK-Shaolin-Monks_box.jpg" class="thumb clickable" alt="Box back">
-      <!-- add more thumbnails here if you want -->
     </div>
   </div>
 
@@ -102,14 +107,13 @@
   <p class="item-brief">2004 • Mint on sealed card</p>
   <div class="item-price">$149.95</div>
 
-  <!-- PayPal Buy Now button – no hosted_button_id needed (see explanation below) -->
   <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
     <input type="hidden" name="cmd" value="_xclick">
-    <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@gmail.com">
+    <input type="hidden" name="business" value="TFSale@TransformersSale.com">
     <input type="hidden" name="item_name" value="Mortal Kombat Sub-Zero Shaolin Monks MOSC">
     <input type="hidden" name="amount" value="149.95">
     <input type="hidden" name="currency_code" value="USD">
-    <input type="hidden" name="shipping" value="8.00">         <!-- optional flat shipping -->
+    <input type="hidden" name="shipping" value="8.95">
     <input type="hidden" name="tax" value="0">
     <input type="hidden" name="no_note" value="1">
     <input type="hidden" name="lc" value="US">
@@ -118,7 +122,7 @@
 
   <details class="item-desc">
     <summary>Full Description & Condition</summary>
-    <p>Mint on sealed card • Original 2004 release • Card may show minor shelf wear or dust from storage • USA shipping only unless arranged • Buy all 4 Shaolin Monks figures and receive the original factory shipping case for free (mention at checkout).</p>
+    <p>Mint on sealed card • Original 2004 release • Card may show minor shelf wear or dust from storage • Buy all 4 Shaolin Monks figures and receive the original factory shipping case for free (mention at checkout) • USA shipping only unless arranged in advance.</p>
   </details>
 </div>
 <!-- ←←← END ITEM -->
